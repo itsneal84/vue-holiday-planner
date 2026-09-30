@@ -110,11 +110,52 @@ const days = computed(() => daysInMonth(props.year, props.month))
   background: var(--tint);
 }
 
+.who small {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
 .left {
   padding: 9px 8px;
   font-size: 13px;
   text-align: right;
   border-left: 1px solid var(--rule);
   font-variant-numeric: tabular-nums;
+}
+
+.left.low { color: var(--sick); font-weight: 700; }
+
+.daycell {
+  border-right: 1px solid var(--rule-soft);
+  position: relative;
+}
+
+.daycell.closed { background: var(--tint); }
+
+.daycell.today::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 2px solid var(--ink);
+}
+
+.bar {
+  position: absolute;
+  inset: 4px 0;
+  background: var(--type-colour);
+}
+
+.bar.start { left: 2px; border-radius: 3px 0 0 3px; }
+
+.bar.end { right: 2px; border-radius: 0 3px 3px 0; }
+
+/* Hatched while it is still someone's decision to make. */
+.bar.pending {
+  background: repeating-linear-gradient(
+    -45deg, var(--type-colour) 0 3px, transparent 3px 6px
+  );
+  box-shadow: inset 0 0 0 1px var(--type-colour);
 }
 </style>
