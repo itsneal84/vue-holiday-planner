@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { RouterView } from 'vue-router'
+import { useHolidayStore } from '@/store/holidays'
+</script>
 
 <template>
   <div class="shell">
